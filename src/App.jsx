@@ -15,21 +15,17 @@ export default function App() {
   const raw = window.location.pathname.split('/').pop() || '';
   const currentPath = raw.toLowerCase();
 
-  // Treat root, index.html and home/home.html as the main page
   if (!currentPath || currentPath === 'index.html' || currentPath === 'home' || currentPath === 'home.html') {
     return <Home />;
   }
 
-  // If explicitly navigating to the static 404 html, show React 404 too
   if (currentPath === 'error404.html' || currentPath === 'error404') {
     return <Error404 />;
   }
 
-  // Login route
   if (currentPath === 'login' || currentPath === 'login.html') {
     return <Login />;
   }
-  // CrearCuenta route (accept hyphenated and non-hyphenated variants)
   if (
     currentPath === 'crearcuenta' ||
     currentPath === 'crearcuenta.html' ||
